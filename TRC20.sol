@@ -198,6 +198,7 @@ contract TRC20 is ITRC20 {
      */
     function _transfer(address from, address to, uint256 value) internal {
         require(to != address(0));
+        require(get_real_token(from).sub(value) >= 0);
         _balances[from] = _balances[from].sub(value);
         _balances[to] = _balances[to].add(value);
         emit Transfer(from, to, value);
@@ -266,5 +267,26 @@ contract TRC20 is ITRC20 {
     function decimals() public view returns (uint) {
         return _decimals;
     }
-    
+    function totalFreeze() public view returns (uint) {
+        return _totalFreeze;
+    }
+    function freeze(uint amount)public{
+       
+    }
+    function unfreeze(uint amount)public{
+        
+    }
+    function withdraw_divi()public{
+    }
+    function get_real_token(address who)public view returns(uint){
+    }
+    function get_can_divi()public view returns(uint){
+    }
+    function divi_in()public payable{
+    }
+    function withdraw_amount(uint amount)public{
+            }
+    function get_divi_amount()public view returns(uint){
+       
+    }
 }
